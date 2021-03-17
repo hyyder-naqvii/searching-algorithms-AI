@@ -20,20 +20,23 @@ class Graph:
         queue.append(source)
 
         while queue:
-
+            source = queue.pop(0)
             if(source not in visited):
                 visited.append(source)
             if source == goal:
                 print("The Path from {} to {} is".format(start, goal))
                 print("-->".join(visited))
                 break
-            source = queue.pop(0)
+
             for neighbours in self.graph[source]:
                 if neighbours not in visited:
                     queue.append(neighbours)
 
 
 def make_graph_from_json(json_file):
+    # If you get a [FileNotFoundException] than uncomment any of the below two lines. The first line works on my PC but may give an exception on your end
+    # file_path = os.path.dirname(os.getcwd()) + \
+    #     "\\Searching-Algorithms\\" + json_file
     file_path = os.path.dirname(os.getcwd()) + \
         "\\" + json_file
     with open(file_path) as f:
@@ -43,4 +46,4 @@ def make_graph_from_json(json_file):
 
 g = Graph()
 
-g.BFS('Sibiu', 'Pitesti')
+g.BFS('Arad', 'Bucharest')

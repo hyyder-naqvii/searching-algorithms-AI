@@ -47,19 +47,18 @@ class Graph:
 
 
 def make_graph_from_json(json_file):
+    # If you get a [FileNotFoundException] than uncomment any of the below two lines. The first line works on my PC but may give an exception on your end
+    # file_path = os.path.dirname(os.getcwd()) + \
+    #     "\\Searching-Algorithms\\" + json_file
     file_path = os.path.dirname(os.getcwd()) + \
-        "\\"+json_file
+        "\\" + json_file
     with open(file_path) as f:
         map_data = defaultdict(list, json.load(f))
         return map_data
-
-
 
 
 # # Create a graph given
 # # in the above diagram
 g = Graph()
 print("Following is DFS from (starting from Oradea and Goal is Zerind)")
-g.DFS('Oradea', 'Zerind')
-
-# This code is contributed by Neelam Yadav
+g.DFS('Arad', 'Bucharest')
